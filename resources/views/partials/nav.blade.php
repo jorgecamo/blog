@@ -10,9 +10,6 @@
 <li class="nav-item">
 <a class="nav-link" href="{{ route('posts.create') }}">Creacion de posts </a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="{{ route('posts.edit',0) }}">Edicion de posts </a>
-</li>
 </ul>
 </div>
 </nav>

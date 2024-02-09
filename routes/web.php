@@ -29,4 +29,4 @@ Route::get('posts/{id}', function($id) {
     return view('posts/ficha' , compact('id'));
     })->where('id', "[0-9]+")->name('posts_ficha');*/
 
-Route::resource('posts',PostController::class)->only(['index','show','create','edit','destroy']);
+Route::resource('posts',PostController::class)->only(['index','show','create','edit','destroy','store']);

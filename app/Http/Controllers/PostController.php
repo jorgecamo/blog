@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Usuario;
 
 class PostController extends Controller
 {
@@ -22,7 +23,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return redirect()->route('inicio');
+        $usuarios = Usuario::get(); //para cargar los autores en el desplegable
+        return view('posts/create',compact('usuarios'));
     }
 
     /**
@@ -30,7 +32,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->titulo = $request->get('titulo');
+        $post->contenido = $request->get('contenido');
+        $post->id_usuario = $request->get('id_usuario');
+        $post->save();
+        return redirect()->route('posts.index'); //Redireccionar al listado.
     }
 
     /**
@@ -51,7 +58,7 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        return redirect()->route('inicio');
+//
     }
 
     /**
