@@ -15,10 +15,11 @@ class UsuariosSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-
-        $usuario = new Usuario();
-        $usuario->login = $faker->firstName;
-        $usuario->password = $faker->word;
-        $usuario->save();
+        for ($i=0; $i < 3; $i++) { 
+            $usuario = new Usuario();
+            $usuario->login = $faker->firstName;
+            $usuario->password = $faker->word;
+            $usuario->save();
+        }
     }
 }
